@@ -1,12 +1,21 @@
-﻿namespace UtmBuilder.Core
+﻿using UtmBuilder.Core.ValueObjects;
+
+namespace UtmBuilder.Core
 {
+  /// <summary>
+  /// UTM (Urchin Tracking Module)
+  /// </summary>
+  /// <param name="url">URL (Link)</param>
+  /// <param name="campaign">Detalhes da campanha</param>
   public class Utm
   {
-    public string Id { get; set; } = string.Empty;
-    public string Url { get; set; } = string.Empty;
-    public string Source { get; set; } = string.Empty;
-    public string Medium { get; set; } = string.Empty;
-    public string Term { get; set; } = string.Empty;
-    public string Content { get; set; } = string.Empty;
+    public Utm(Url url, Campaign campaign)
+    {
+      Url = url;
+      Campaign = campaign;
+    }
+
+    public Url Url { get; }
+    public Campaign Campaign { get; }
   }
 }
